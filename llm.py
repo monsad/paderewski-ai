@@ -24,7 +24,7 @@ def llm_predict_winner(participants: List[Dict]) -> Dict:
                 model=model_id,
                 max_tokens=1024,
                 temperature=0.4,
-                system=normalize_text("You are a precise competition analyst that outputs strict JSON."),
+                system=normalize_text("Jesteś precyzyjnym analitykiem konkursowym, który zwraca ściśle sformatowany JSON."),
                 messages=[{"role": "user", "content": [{"type": "text", "text": user_text}]}],
             )
             content_text = ""
@@ -75,7 +75,7 @@ def llm_predict_winner(participants: List[Dict]) -> Dict:
             completion = openai_client.chat.completions.create(
                 model=model_id,
                 messages=[
-                    {"role": "system", "content": normalize_text("You are a precise competition analyst that outputs strict JSON.")},
+                    {"role": "system", "content": normalize_text("Jesteś precyzyjnym analitykiem konkursowym, który zwraca ściśle sformatowany JSON.")},
                     {"role": "user", "content": user_text},
                 ],
                 temperature=0.4,
